@@ -1,0 +1,12 @@
+.container
+    .row.justify-content-center
+        .col-md-8
+            h1 Create new Book
+            = form_with model: @book, url: books_path, method: :post do |form|
+                .form-group
+                    = form.label :title
+                    = form.text_field :title, class: "form-control"
+                .form-group
+                    = form.label :content
+                    = form.text_area :content, class: "form-control"
+                = form.submit "Create", class: "btn btn-success mt-3"
