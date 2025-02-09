@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+    @user = current_user
     if params[:search].present?
       @books = Book.where("title LIKE ?", "%#{params[:search]}%")
     else

@@ -1,0 +1,15 @@
+header.navbar.navbar-fixed-top.navbar-inverse.bg-dark
+  .container
+    = link_to "Codecamp", root_path, id: "logo"
+    nav
+      ul.nav.navbar-right.navbar-nav.flex-row.align-items-center
+        - if user_signed_in?
+          li.mx-2
+            = link_to "Information", users_information_path, class: "btn btn-info"
+          li.mx-2
+          = button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn btn-danger"
+        - else
+          li.mx-2
+            = link_to "Login", new_user_session_path, class: "btn btn-success"
+          li.mx-2
+            = link_to "Sign up", new_user_registration_path, class: "btn btn-primary"

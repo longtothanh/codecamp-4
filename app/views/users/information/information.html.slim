@@ -1,0 +1,42 @@
+.container.mt-3
+  .row.justify-content-center
+    .col-md-8
+      .card.shadow
+        .card-header.bg-info.text-white
+          h3.mb-0.text-center User Information
+        .card-body
+          .row.mb-4
+            .col-md-4
+              .card
+                .card-body.text-center
+                  i.fas.fa-user.fa-3x.mb-3.text-primary
+                  h5.card-title = @user.user_name
+                  p.card-text.text-muted Member
+          
+          .row
+            .col-md-12
+              .card.mb-3
+                .card-header.bg-light
+                  h5.mb-0 User Details
+                .card-body
+                  .row.mb-3
+                    .col-sm-4.text-muted Email:
+                    .col-sm-8 = @user.email
+                  .row.mb-3
+                    .col-sm-4.text-muted Username:
+                    .col-sm-8 = @user.user_name
+                  .row.mb-3
+                    .col-sm-4.text-muted Member Since:
+                    .col-sm-8 = @user.created_at.strftime("%B %d, %Y")
+              
+              .card
+                .card-header.bg-light
+                  h5.mb-0 User Actions
+                .card-body
+                  .d-flex.justify-content-between
+                    = link_to edit_user_registration_path, class: "btn btn-primary" do
+                      i.fas.fa-edit
+                      | Edit Profile
+                    = link_to root_path, class: "btn btn-outline-secondary" do
+                      i.fas.fa-home
+                      | Back to Home
