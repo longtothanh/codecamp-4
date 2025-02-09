@@ -1,6 +1,9 @@
-.container
+.container.mt-3
   .row.justify-content-center
     .col-md-8
+      - if user_signed_in?
+        h4.text-center.text-success 
+          i Welcome #{current_user.user_name} to Book Review App
       h1 List of Books
       = form_with url: books_path, method: :get, local: true, class: "mb-3" do
         .input-group

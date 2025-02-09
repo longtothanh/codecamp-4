@@ -1,4 +1,4 @@
-header.navbar.navbar-fixed-top.navbar-inverse
+header.navbar.navbar-fixed-top.navbar-inverse.bg-dark
   .container
     = link_to "Codecamp", root_path, id: "logo"
     nav
@@ -12,4 +12,4 @@ header.navbar.navbar-fixed-top.navbar-inverse
           li.mx-2
             = link_to "Login", new_user_session_path, class: "btn btn-success"
           li.mx-2
-            = button_to "Sign up", new_user_registration_path, class: "btn btn-primary"
+            = link_to "Sign up", new_user_registration_path, class: "btn btn-primary"

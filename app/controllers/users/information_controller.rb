@@ -3,8 +3,7 @@ module Users
     before_action :authenticate_user!
     
     def information
-        @user = current_user
-        binding.pry
+      @user = current_user
     end
   end
 end

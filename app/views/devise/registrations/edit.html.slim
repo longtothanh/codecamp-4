@@ -1,0 +1,29 @@
+.container.mt-3
+  h1.text-center Edit Profile
+  .row.justify-content-center
+    .col-md-6
+        = form_with(model: @user, url: user_registration_path(@user), html: { method: :put }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .mb-3
+                = f.label :email, class: "form-label"
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+
+            .mb-4
+                = f.label :current_password, class: "form-label"
+                = f.password_field :current_password, autocomplete: "current-password", class: "form-control"
+
+            .mb-3
+                = f.label :password, class: "form-label"
+                = f.password_field :password, autocomplete: "new-password", class: "form-control"
+                - if @minimum_password_length
+                small.form-text.text-muted
+                    | #{@minimum_password_length} characters minimum
+
+            .mb-3
+                = f.label :password_confirmation, class: "form-label"
+                = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+
+            .mt-3
+                = f.submit "Update", class: "btn btn-primary"
+                = link_to "Back", :back, class: "btn btn-outline-secondary mx-3" 
+            
